@@ -1,0 +1,40 @@
+body {
+    font-family: 'Comfortaa', cursive;
+    margin: 15px;
+    
+    box-sizing: border-box;
+}
+
+.parent{
+    display: flex;
+}
+
+.flex{
+    flex:0.75;
+}
+
+.summary{
+    margin-left: -45px;
+}
+
+.place-order{
+    margin-left: 864px;
+    display: block;
+    text-align: center;
+    width: 369px;
+    line-height: 40px;
+    background-color: tomato;
+    border-color: tomato;
+    color: white;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: red;
+}
+
+.backToCart{
+    border-color: tomato;
+    background-color: tomato;
+    border-radius: 6px;
+}

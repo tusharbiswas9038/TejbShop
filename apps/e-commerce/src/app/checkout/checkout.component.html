@@ -1,0 +1,24 @@
+<div class="wrapper">
+
+<div class="cart-total">
+  <p>
+    <span>Item Price</span>
+
+    <span>{{totalPrice | currency:'INR'}}</span>
+  </p>
+  <p>
+    <span>You Save</span>
+
+    <span class="saving">{{(totalPrice * 10) / 100 | currency:'INR'}}</span>
+  </p>
+  <p>
+    <span>Total Price</span>
+
+    <span>{{totalPrice | currency:'INR'}}</span>
+  </p>
+  <div *ngIf="!isCheckout">
+  <button routerLink="/checkout">Proceed to Checkout</button>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,118 @@
+<div class="admin-main" *ngIf="orders">
+  <div
+    *ngIf="updated"
+    class="alert alert-success alert-dismissible fade show"
+    role="alert"
+  >
+    <strong><i class="bi bi-check-circle-fill"></i>Updated Status</strong>
+  </div>
+  <div class="card">
+    <h4>View Order</h4>
+    <div class="card-body">
+      <h5 class="card-title text-muted">You can edit order status here</h5>
+      <div
+        class="btn-toolbar"
+        role="toolbar"
+        aria-label="Toolbar with button groups"
+      >
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <!-- <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <fieldset>
+      <legend>Order Details</legend>
+
+      <div class="row">
+        <div class="col">
+          <label for="id">Order Id</label>
+          <p>{{ orders.id }}</p>
+          <p></p>
+        </div>
+        <div class="col">
+          <label for="date">Order Date</label>
+          <p>{{ orders.dateOrdered | date: 'short' }}</p>
+        </div>
+        <div class="col">
+          <label for="price">Oder Total Price</label>
+          <p>{{ orders.totalPrice }}</p>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <select
+              [(ngModel)]="selectedStatus"
+              (change)="onStatusChange($event)"
+            >
+              <option *ngFor="let item of orderStatuses" [value]="item.id">
+                {{ item.name }}
+              </option>
+            </select>
+            <p>You selected: {{orderStatuses[selectedStatus].name  }}</p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="card">
+    <legend>Order Items</legend>
+    <table class="table">
+      <thead>
+        <tr *ngIf="orders.orderItems">
+          <th scope="col">Name</th>
+          <th scope="col">Brand</th>
+          <th scope="col">Category</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of orders.orderItems">
+          <th>{{ item.product.name }}</th>
+          <td>{{ item.product.brand }}</td>
+          <td>{{ item.product.category.name }}</td>
+          <td>{{ item.product.price | currency: 'INR' }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.product.price * item.quantity | currency: 'INR' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card">
+    <fieldset>
+      <legend>Address Details</legend>
+
+      <div class="row">
+        <div class="col">
+          <label for="id">Order Address</label>
+          <p>
+            {{ orders.shippingAddress1 }}<br />
+            {{ orders.shippingAddress2 }}<br />
+            {{ orders.zip }} {{ orders.city }}<br />
+            {{ orders.country }}
+          </p>
+        </div>
+        <div class="col">
+          <label for="date">Customer Name</label>
+          <p>{{ orders.user.name }}</p>
+        </div>
+        <div class="col">
+          <label for="price">Contact Details</label>
+          <p>{{ orders.phone }}</p>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <label for="id">Order Status</label>
+            <p>{{ orders.status }}</p>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

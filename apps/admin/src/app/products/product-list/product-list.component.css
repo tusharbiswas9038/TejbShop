@@ -1,0 +1,14 @@
+.admin-main {
+  /* width: calc(100% - 175px); */
+  margin-left: 175px;
+}
+
+.small
+{
+  display: inline-block;
+  max-width: 150px;
+  max-height: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

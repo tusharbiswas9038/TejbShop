@@ -1,0 +1,61 @@
+<body *ngIf="product">
+  <div class="container1">
+    <div class="flex-container-main">
+      <div class="flex-container">
+        <div class="serial">
+          <ul>
+            <img
+              [src]="product.image"
+              alt="{{ product.name }}"
+              (click)="onSelect(product.image)"
+            />
+            <li *ngFor="let image of product.images">
+              <img
+                [src]="image"
+                alt="{{ product.name }}"
+                (click)="onSelect(image)"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="main">
+          <img
+            [src]="selectedImg || product.image"
+            class="main_img"
+            alt="{{ product.name }}"
+          />
+        </div>
+      </div>
+      <div class="cart-button">
+        <div class="ctb">
+          <div class="button">
+            <input type="button" value="Add to Cart" (click)="addToCart()" />
+          </div>
+          <div class="button"><input type="button" value="Buy Now" (click)="addToCart()" routerLink="/cart"/></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-r sidebar">
+      <h2 style="margin: 0px">{{ product.name }}</h2>
+      <p
+        style="
+          display: inline-block;
+          font-size: x-large;
+          font-style: italic;
+          font-weight: 400;
+          margin-top: 10px;
+        "
+      >
+        {{ product.price | currency: 'INR' }}
+      </p>
+
+      <hr />
+
+      <h6>DESCRIPTION :-</h6>
+
+      <p>{{ product.description }}</p>
+
+      <div [innerHtml]="product.richDescription"></div>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,29 @@
+<div class="container-m">
+    <div class="grid1">
+        <p class="p">Buy Desktop on Easy EMIs</p>
+    </div>
+    <div class="grid2">
+        <button type="button" (click)="slide('right')" class="button-right"><i class="bi bi-arrow-right-circle"></i></button>
+        <button type="button" (click)="slide('left')" class="button-left"><i class="bi bi-arrow-left-circle"></i></button>
+
+            <div class="wrapper">
+              <div class="row1 extra-space">
+                    <div class="div col-2" *ngFor="let item of products">
+                        <div class="wrapper1">
+                         <img [routerLink]="'/product/'+ item.id" [src]=" item.image " style="width:50%" alt=" {{item.name}} ">
+                         <h5  data-bs-toggle="tooltip" data-bs-placement="right" title="{{item.name}}">
+                           {{item.name}}
+                         </h5>
+                         <h6>{{item.price | currency:"INR"}}</h6>
+                         <button type="button" class="btn btn-outline-danger" (click)="addToCart(item.id)" routerLink="/cart">Buy Now</button>
+                     </div>
+                     </div>
+                    </div>
+              </div>   
+              
+          
+    </div>
+    <div class="grid3">
+        <p class="bottom-p">Get Your Favourite Desktops on down Payment as low as Rs 2,565</p>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-3" id="filterDiv">
+        <h2>Filters</h2><hr>
+       <div class="container"> 
+           <div class="form-check" *ngFor="let item of categories" >
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="item.checked" (change)="categoryfilter()">
+            <label class="form-check-label click" for="flexCheckDefault" >
+              {{item.name}}
+            </label>
+          </div>
+        </div>
+    </div>
+    <div class="col-9">
+        <h2>Products</h2><hr>
+    <div class="row" *ngIf="products">
+    <div class="col-3" *ngFor="let item of products">
+       <div class="wrapper">
+        <img [routerLink]="'/product/'+ item.id" [src]=" item.image " style="width:50%" alt=" {{item.name}} ">
+        <h5  data-bs-toggle="tooltip" data-bs-placement="right" title="{{item.name}}">
+          {{item.name}}
+        </h5>
+        <h6>{{item.price | currency:"INR"}}</h6>
+        <button type="button" class="btn btn-outline-danger" (click)="addToCart(item.id)" routerLink="/cart">Buy Now</button>
+    </div>
+    </div>
+</div>
+</div>
+</div>
+  </div>

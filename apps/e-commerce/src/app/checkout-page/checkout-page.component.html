@@ -1,0 +1,123 @@
+<body>
+  <div class="container">
+    <button class="backToCart" (click)="backToCart()"><i class="bi bi-arrow-left-circle">Back To Cart</i></button>
+    <div class="summary">
+      <tejb-checkout></tejb-checkout>
+    </div>
+    <h1>Shipping Details</h1>
+    <div class="parent">
+      <div class="flex">
+        <form
+          [formGroup]="checkoutFormGroup"
+          class="row g-3 needs-validation"
+          novalidate
+        >
+          <div class="col-md-4">
+            <label for="validationCustom01" class="form-label">Street</label>
+            <input
+              formControlName="street"
+              type="text"
+              class="form-control"
+              id="validationCustom01"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.street.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your street name
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">Apartment</label>
+            <input
+              formControlName="apartment"
+              type="text"
+              class="form-control"
+              id="validationCustom02"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.apartment.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your apartment name
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+          <div class="col-md-4">
+            <label for="validationCustom02" class="form-label">City</label>
+            <input
+              formControlName="city"
+              type="text"
+              class="form-control"
+              id="validationCustom02"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.city.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your city name
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+          <div class="col-md-6">
+            <label for="validationCustom03" class="form-label">Country</label>
+            <input
+              formControlName="country"
+              type="text"
+              class="form-control"
+              id="validationCustom03"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.country.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your country name
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Zip</label>
+            <input
+              formControlName="zip"
+              type="text"
+              class="form-control"
+              id="validationCustom05"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.zip.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your zip code
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+          <div class="col-md-3">
+            <label for="validationCustom05" class="form-label">Phone</label>
+            <input
+              formControlName="phone"
+              type="text"
+              class="form-control"
+              id="validationCustom05"
+              required
+            />
+            <small
+          *ngIf="checkoutForm.phone.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your phone number
+          <div class="invalid-feedback"></div>
+        </small>
+          </div>
+        </form>
+      </div>
+    </div>
+    <button class="place-order" (click)="placeOrder()">Place Order</button>
+
+  </div>
+</body>

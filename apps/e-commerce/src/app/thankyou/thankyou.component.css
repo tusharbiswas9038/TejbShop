@@ -1,0 +1,20 @@
+.backToShop{
+    border-color: tomato;
+    background-color: tomato;
+    border-radius: 6px;
+    position: absolute;
+}
+
+button:hover{
+    background-color: red;
+}
+.padding{
+    padding: 0px;
+    background-color: #d8e5f5;
+}
+
+.picture{
+    text-align: center;
+    width: 740px;
+    margin-left: 320px;
+}

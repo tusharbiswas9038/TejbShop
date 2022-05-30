@@ -1,0 +1,47 @@
+<div class="admin-main">
+    <div class="container">
+        <div class="card">
+          <h4 class="card-header">Add a User</h4>
+          <div class="card-body">
+            <h5 class="card-title text-muted">You can add or edit users here</h5>
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+              <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary" routerLink="form"><i class="bi bi-plus-circle-dotted"></i>New</button>
+              </div>
+              </div>
+          </div>
+        </div>
+        <div class="container">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Is Admin</th>
+                <th scope="col"></th>
+    
+              </tr>
+            </thead>
+            <tbody>
+    
+              <tr *ngFor="let item of users" >
+                  <td>{{item.id}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.email}}</td>
+                 <td><span *ngIf="item.isAdmin" class="badge bg-success rounded-circle"><i class="bi bi-eye-fill"></i></span>
+                  <span *ngIf="!item.isAdmin" class="badge bg-danger rounded-circle"><i class="bi bi-eye-slash-fill"></i></span></td>
+                 <td>
+                  <button (click)="deleteUser(item.id)" type="button" class="btn btn-danger">Delete</button>
+                  <button (click)="updateUser(item.id)" type="button" class="btn btn-primary">Edit</button></td>
+                </tr>
+    
+            </tbody>
+    
+          </table>
+    
+        </div>
+    
+        </div>
+        </div>
+    

@@ -1,0 +1,88 @@
+<div class="admin-main">
+  <div class="card m-2">
+    <div class="card-body">
+      <h5 class="card-title">Dashboard</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Latest Updates</h6>
+      <hr />
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="card box">
+              <div class="row">
+                <div class="col-8">
+                    <span> {{ statistics[0] }} </span>
+                  <h4>Users</h4>
+                </div>
+                <div class="col-4">
+                  <i class="bi bi-people-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card box">
+              <div class="row">
+                <div class="col-8">
+                    <span>{{ statistics[1] }}</span>
+                  <h4>Products</h4>
+                </div>
+                <div class="col-4">
+                    <i class="bi bi-bag-heart-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card box">
+              <div class="row">
+                <div class="col-8">
+                    <span>{{ statistics[2] }}</span>
+                  <h4>Orders</h4>
+                </div>
+                <div class="col-4">
+                    <i class="bi bi-cart-plus-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card box">
+              <div class="row">
+                <div class="col-8">
+                    <span class="price">{{ statistics[3] | currency: 'INR' }}</span>
+                  <h4>Total sale</h4>
+                </div>
+                <div class="col-4">
+                    <i class="bi bi-wallet-fill"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 
+    <div class="row">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+</div>

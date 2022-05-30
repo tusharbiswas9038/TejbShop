@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "projects": {
+    "admin": "apps/admin",
+    "admin-e2e": "apps/admin-e2e",
+    "e-commerce": "apps/e-commerce",
+    "e-commerce-e2e": "apps/e-commerce-e2e",
+    "orders": "libs/orders",
+    "products": "libs/products",
+    "ui": "libs/ui",
+    "users": "libs/users"
+  },
+  "styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.css",
+    "node_modules/bootstrap/dist/css/bootstrap.min.css"
+  ],
+  "scripts": [
+    "node_modules/bootstrap/dist/js/bootstrap.js",
+    "node_modules/bootstrap/dist/js/bootstrap.min.js",
+    "node_modules/jquery/dist/jquery.min.js"
+  ]
+}

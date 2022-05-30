@@ -1,0 +1,33 @@
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border:1px solid black;
+    border-radius: 15px;
+    background-color: rgb(222, 227, 230);
+    margin-top: 60px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    min-height: 172px;
+  
+}
+.wrapper h5{
+    display: inline-block;
+    max-width: 175px;
+    min-height: 25px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+img {
+   margin-top: -35px;
+}
+
+#filterDiv{
+    background-color: aliceblue;
+}
+.click{
+    pointer-events: none;
+}

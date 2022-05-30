@@ -1,0 +1,21 @@
+body{
+    background-color: steelblue;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.center-block{
+    width: 34vw;
+    padding: 0px 3px;
+    display: grid;
+    margin: 36px 0px;
+    background-size: cover;
+    background-image: linear-gradient(rgba(255 255 255 / 50%),rgba(0 0 34 / 58%)),url("/assets/images/background.png");
+}
+
+.align{
+    align-self: center;
+}

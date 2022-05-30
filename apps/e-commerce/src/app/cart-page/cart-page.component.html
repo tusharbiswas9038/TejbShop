@@ -1,0 +1,40 @@
+<body>
+  <div class="container">
+    <h1>Items in Your Bag</h1>
+    <div *ngIf="cartItemDetailed.length === 0">
+      <img src="/assets/images/no-product-found.png" alt="">
+    </div>
+    <div class="cart" *ngFor="let items of cartItemDetailed">
+      <div class="products" *ngIf="cartItemDetailed">
+        <div class="product">
+          <img [src]="items.productId.image" [alt]="items.productId.name" />
+
+          <div class="product-info">
+            <h3 class="product-name">{{ items.productId.name }}</h3>
+
+            <h4 class="product-price">
+              {{ items.productId.price | currency: 'INR' }}
+            </h4>
+
+            <p class="product-quantity">
+              Qnt: <input [value]="items.quantity" name="" />
+            </p>
+            <h5 class="subtotal">
+              Subtotal:
+              <span>{{
+                items.productId.price * items.quantity | currency: 'INR'
+              }}</span>
+            </h5>
+
+            <button class="product-remove" (click)="deleteCart(items)">
+              <i class="bi bi-trash"></i>
+
+              <span class="remove">Remove</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <tejb-checkout *ngIf="cartItemDetailed.length !== 0"></tejb-checkout>
+  </div>
+</body>

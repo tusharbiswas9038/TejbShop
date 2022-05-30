@@ -1,0 +1,219 @@
+<div class="admin-main">
+  <div class="card">
+    <h4 *ngIf="editmode">Edit User</h4>
+    <h4 *ngIf="!editmode">Add User</h4>
+    <div
+      *ngIf="created"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong
+        ><i class="bi bi-check-circle-fill"></i>Successfully created</strong
+      >
+    </div>
+    <div
+      *ngIf="updated"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong
+        ><i class="bi bi-check-circle-fill"></i>Successfully updated</strong
+      >
+    </div>
+    <div class="card-body">
+      <h5 *ngIf="editmode" class="card-title text-muted">You can edit users here</h5>
+      <h5 *ngIf="!editmode" class="card-title text-muted">You can add Users here</h5>
+      <div
+        class="btn-toolbar"
+        role="toolbar"
+        aria-label="Toolbar with button groups"
+      >
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button
+            *ngIf="editmode"
+            type="button"
+            class="btn btn-success"
+            (click)="onSubmit()"
+          >
+            Update
+          </button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button
+            *ngIf="!editmode"
+            type="button"
+            class="btn btn-success"
+            (click)="onSubmit()"
+          >
+            Create
+          </button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col">
+        <label for="name" class="form-label">User Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          title="Name for your category"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.name.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter user name
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="password" class="form-label">Password</label>
+        <input
+          formControlName="password"
+          type="text"
+          class="form-control"
+          title="Password"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.name.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter the password
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="email" class="form-label">Email</label>
+        <input
+          formControlName="email"
+          type="email"
+          class="form-control"
+          title="email"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.email.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          <span *ngIf="userform.email.errors.required">email is required</span>
+          <span *ngIf="userform.email.errors.email">email is invalid</span>
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="street" class="form-label">Street</label>
+        <input
+          formControlName="street"
+          type="text"
+          class="form-control"
+          title="Street"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.street.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          Enter street name
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="zip" class="form-label">Zip</label>
+        <input
+          formControlName="zip"
+          type="text"
+          class="form-control"
+          title="Zip"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.zip.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter Zip
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="city" class="form-label">City</label>
+        <input
+          formControlName="city"
+          type="text"
+          class="form-control"
+          title="City"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.city.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter city
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="country" class="form-label">Country</label>
+        <input
+          formControlName="country"
+          type="text"
+          class="form-control"
+          title="Country name"
+          placeholder="...."
+        />
+        <small
+          *ngIf="userform.country.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter country name
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="phone" class="form-label">Phone number</label>
+        <input
+          formControlName="phone"
+          type="tel"
+          class="form-control"
+          name="phone"
+          pattern="[0-9]{10}"
+          title="Phone number"
+          placeholder="...."
+          required
+        />
+        <small
+          *ngIf="userform.phone.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter phone number
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+    </div>
+    <div class="col">
+      <div class="custom-control custom-switch">
+        <input
+          formControlName="isAdmin"
+          type="checkbox"
+          class="custom-control-input m-1 fs-2"
+          id="switch1"
+          name="isAdmin"
+        />
+        <label class="custom-control-label" for="switch1">Is Admin</label>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,69 @@
+<section id="header">
+  <div class="blank"></div>
+  <div class="logo">
+    <a routerLink=""><img src="/assets/images/logo2.png" alt="" /></a>
+  </div>
+  <div class="nav">
+    <ul class="cates">
+      <div class="dropdown">
+        <li>Desktops</li>
+        <div class="dropdown-content">
+          <a routerLink="/gaming-desktop">Gaming Desktops</a>
+          <a href="#">Workstation Desktops</a>
+          <a href="#">Office Use Desktops</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <li>
+          Laptops
+          <div class="dropdown-content">
+            <a routerLink="/gaming-laptop">Gaming Laptops</a>
+            <a href="#">Office Use Laptops</a>
+          </div>
+        </li>
+      </div>
+
+      <li class="adjust-width" id="hover">
+        <a routerLink="/accessories">Accessories</a>
+      </li>
+    </ul>
+  </div>
+  <div class="blank"></div>
+  <div class="nav">
+    <ul class="icons">
+      <li class="adjust-width">
+        <div class="flex">
+          <input
+            id="inPut"
+            type="text"
+            class="form-control"
+            placeholder="Find Products"
+            aria-label="Find Products"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn bi-search btn2 sizing"
+            type="button"
+            id="button-addon2"
+            (click)="cons()"
+          ></button>
+        </div>
+      </li>
+      <li class="adjust-width">
+        <a (click)="isLogin()" class="pointer"><i class="bi bi-person-fill"> {{isSign}}</i></a>
+      </li>
+      <li class="adjust-width">
+        <a routerLink="/cart"
+          ><button type="button" class="btn position-relative">
+            <i class="bi bi-cart-plus sizing">Cart</i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+            >
+              {{ cartCount }}
+            </span>
+          </button></a
+        >
+      </li>
+    </ul>
+  </div>
+</section>

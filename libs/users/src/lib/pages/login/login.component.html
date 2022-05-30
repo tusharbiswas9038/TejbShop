@@ -1,0 +1,74 @@
+<body>
+  <div class="container">
+    <div class="center">
+      <div class="center-block">
+        <div class="align">
+          <h3 style="
+    text-align: center;
+    margin-bottom: 100px;
+    font-family: cursive;
+">Welcome to TEJB</h3>
+          <form [formGroup]="loginFormGroup">
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label"
+                >Email</label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  id="inputEmail3"
+                  placeholder="Enter Your Email"
+                />
+                <small
+                  *ngIf="loginForm.email.invalid && isSubmitted"
+                  class="form-control is-invalid"
+                >
+                  <span *ngIf="loginForm['email'].errors.required">
+                    enter email id</span
+                  >
+                  <span *ngIf="loginForm.email.errors.email">
+                    email id invalid</span
+                  >
+                  <div class="invalid-feedback"></div>
+                </small>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label"
+                >Password</label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control"
+                  id="inputPassword3"
+                  placeholder="Enter Your Password"
+                />
+                <small
+                  *ngIf="loginForm.password.invalid && isSubmitted"
+                  class="form-control is-invalid"
+                >
+                  Please enter password
+                  <div class="invalid-feedback"></div>
+                </small>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+              Sign in
+            </button>
+            <small
+              *ngIf="authError && isSubmitted"
+              class="form-control is-invalid"
+            >
+              {{ errorString }}
+              <div class="invalid-feedback"></div>
+            </small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

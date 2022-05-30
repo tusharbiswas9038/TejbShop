@@ -1,0 +1,210 @@
+<div class="admin-main">
+  <div class="card">
+    <h4 *ngIf="editmode">Edit product</h4>
+    <h4 *ngIf="!editmode">Add product</h4>
+    <div
+      *ngIf="created"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong
+        ><i class="bi bi-check-circle-fill"></i>Successfully created</strong
+      >
+    </div>
+    <div
+      *ngIf="updated"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong
+        ><i class="bi bi-check-circle-fill"></i>Successfully updated</strong
+      >
+    </div>
+    <div class="card-body">
+      <h5 *ngIf="editmode" class="card-title text-muted">You can edit products here</h5>
+      <h5 *ngIf="!editmode" class="card-title text-muted">You can add products here</h5>
+      <div
+        class="btn-toolbar"
+        role="toolbar"
+        aria-label="Toolbar with button groups"
+      >
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button
+            *ngIf="editmode"
+            type="button"
+            class="btn btn-success"
+            (click)="onSubmit()"
+          >
+            Update
+          </button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button
+            *ngIf="!editmode"
+            type="button"
+            class="btn btn-success"
+            (click)="onSubmit()"
+          >
+            Create
+          </button>
+        </div>
+        <div class="btn-group me-2" role="group" aria-label="Second group">
+          <button type="button" class="btn btn-danger" (click)="onCancel()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col">
+        <label for="name" class="form-label">Product Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          class="form-control"
+          title="Name for your product"
+          placeholder="Enter your product name"
+        />
+        <small
+          *ngIf="productform.name.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your product name
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="price" class="form-label">Price</label>
+        <input
+          formControlName="price"
+          type="number"
+          class="form-control"
+          title="price of the product"
+          placeholder="Enter price"
+        />
+        <small
+          *ngIf="productform.price.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your product's price
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select
+            formControlName="category"
+            type="text"
+            class="form-control mt-2"
+            title="Name for your category"
+            placeholder="...."
+            id="sel1"
+          >
+            <option *ngFor="let item of categories" [ngValue]="item.id">
+              {{ item.name }}
+            </option>
+          </select>
+        </div>
+        <small
+          *ngIf="productform.category.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter your caregory name
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+      <div class="col">
+        <label for="countInStock" class="form-label">Count in Stock</label>
+        <input
+          formControlName="countInStock"
+          type="number"
+          class="form-control"
+          title="Count of your product"
+          placeholder="...."
+        />
+        <small
+          *ngIf="productform.name.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease enter stock number of your product
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <label for="description" class="form-label">Description</label>
+        <div class="form-group">
+          <textarea
+            formControlName="description"
+            class="form-control"
+            placeholder="."
+            id="floatingTextarea"
+            rows="3"
+          ></textarea>
+        </div>
+        <small
+          *ngIf="productform.description.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          PLease add some description about your product
+          <div class="invalid-feedback"></div>
+        </small>
+      </div>
+    </div>
+
+    <angular-editor
+      formControlName="richDescription"
+      [config]="config"
+    ></angular-editor>
+
+    <div class="row">
+      <div class="col">
+        <label for="image">Main Image</label>
+        <input
+          type="file"
+          class="form-control"
+          accept="image/*"
+          (change)="onImageUpload($event)"
+        />
+        <small
+          *ngIf="productform.image.invalid && isSubmitted"
+          class="form-control is-invalid"
+        >
+          Enter image
+          <div class="invalid-feedback"></div>
+        </small>
+        <img class="img-size" [src]="imageDisplay" />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="image">Image Gallery</label>
+        <input
+          type="file"
+          class="form-control"
+          accept="image/*"
+          (change)="onMultipleImageUpload($event)"
+          multiple
+        />
+        <img class="img-size" *ngFor="let images of url" [src]="images" alt="img " />
+      </div>
+    </div>
+
+    <div class="col m-4">
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          class="custom-control-input m-1 fs-2"
+          id="switch1"
+          name="isFeatured"
+        />
+        <label class="custom-control-label" for="switch1">Featured</label>
+      </div>
+    </div>
+  </form>
+</div>

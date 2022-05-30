@@ -1,0 +1,8 @@
+.admin-main {
+   width: calc(100% - 175px); 
+  margin-left: 180px;
+}
+.img-size{
+     max-width: 400px;
+     max-height: 250px;
+}
