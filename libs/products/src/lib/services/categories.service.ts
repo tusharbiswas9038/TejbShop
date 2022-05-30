@@ -4,16 +4,16 @@ import { Injectable } from '@angular/core';
 import{ HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { Category } from '../model/category';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { environment } from '@env/environment';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
+  apiURL="https://tejb-shop-backend.herokuapp.com/api/v1/"
 
- apiURLCategories = environment.apiURL + 'categories';
+ apiURLCategories = this.apiURL + 'categories';
   constructor(private http:HttpClient) { }
   getCategories(): Observable<Category[]>{
     return this.http.get<Category[]>(this.apiURLCategories);

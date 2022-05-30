@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable, switchMap } from 'rxjs';
 import { Order } from '../models/order';
-import { environment } from '@env/environment';
 import { OrderItem } from '../models/order-item';
 import { StripeService } from 'ngx-stripe';
 @Injectable({
   providedIn: 'root'
 })
 export class OrdersService {
-  apiURLOrders = environment.apiURL + 'orders';
+  apiURL="https://tejb-shop-backend.herokuapp.com/api/v1/"
+  apiURLOrders = this.apiURL + 'orders';
 
   constructor(private http: HttpClient,
     private stripeService: StripeService
